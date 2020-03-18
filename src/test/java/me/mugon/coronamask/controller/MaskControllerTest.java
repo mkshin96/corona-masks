@@ -26,7 +26,6 @@ class MaskControllerTest {
         mockMvc.perform(get("/api/masks")
                         .param("address", "서울특별시 강남구 논현동"))
                 .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("address").exists());
+                .andExpect(status().isOk());
     }
 }
