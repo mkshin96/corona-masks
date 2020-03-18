@@ -1,11 +1,8 @@
 package me.mugon.coronamask.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Getter
+@Getter @Setter
 @NoArgsConstructor @AllArgsConstructor @Builder
 public class Store {
     private String addr; //판매처 주소

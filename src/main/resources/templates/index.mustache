@@ -1,0 +1,36 @@
+{{>layout/header}}
+
+<h1 align="center">마스크 조회</h1>
+<div class="col-md-12">
+    <div class="form-group">
+        <label for="address">주소</label>
+        <input type="text" class="form-control" id="address" placeholder="주소를 입력하세요">
+    </div>
+    <button type="button" class="btn btn-primary" id="btn-enter">입력</button>
+    <br>
+    <!-- 목록 출력 영역 -->
+    <table class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+            <tr>
+                <th>판매처 주소</th>
+                <th>데이터 생성 일자</th>
+                <th>재고 상태</th>
+                <th>입고 시간</th>
+                <th>이름</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#masks}}
+            <tr>
+                <td>{{addr}}</td>
+                <td>{{created_at}}</td>
+                <td>{{remain_stat}}</td>
+                <td>{{stock_at}}</td>
+                <td>{{name}}</td>
+            </tr>
+        {{/masks}}
+        </tbody>
+    </table>
+</div>
+
+{{>layout/footer}}

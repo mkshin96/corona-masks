@@ -1,16 +1,20 @@
 package me.mugon.coronamask.controller;
 
 import lombok.RequiredArgsConstructor;
+import me.mugon.coronamask.controller.dto.MaskResponseDto;
+import me.mugon.coronamask.domain.Store;
 import me.mugon.coronamask.service.MaskService;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RequestMapping(value = "/api")
-@RestController
+@Controller
 public class MaskController {
 
     private final MaskService maskService;
@@ -21,7 +25,11 @@ public class MaskController {
     ('서울특별시' 와 같이 '시'단위만 입력하는 것은 불가능합니다.)
      */
     @GetMapping("/masks")
-    public ResponseEntity<?> getMasks(@RequestParam("address") String address) {
-        return maskService.getMasks(address);
+    public String getMasks(Model model, @RequestParam("address") String address) {
+        List<Store> masks = maskService.getMasks(address);
+        if (masks != null) {
+            model.addAttribute("masks", masks);
+        }
+        return "/index";
     }
 }
