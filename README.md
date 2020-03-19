@@ -4,3 +4,6 @@
 
 ### API GUIDE
 - [LINK](https://app.swaggerhub.com/apis-docs/Promptech/public-mask-info/20200307-oas3#/)
+
+### 배포 서버
+- [LINK](https://pickme-back.ga/)
