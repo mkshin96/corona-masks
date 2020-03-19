@@ -6,6 +6,7 @@ import me.mugon.coronamask.service.MaskService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -33,5 +34,13 @@ public class MaskController {
             model.addAttribute("masks", masks);
         }
         return "index";
+    }
+
+    @GetMapping("/api/map")
+    public String getMap(Model model, @RequestParam(value = "latitude") float latitude, @RequestParam(value = "longitude") float longitude) {
+        model.addAttribute("latitude", latitude);
+        model.addAttribute("longitude", longitude);
+
+        return "map";
     }
 }

@@ -18,6 +18,7 @@
                 <th>재고 상태</th>
                 <th>입고 시간</th>
                 <th>이름</th>
+                <th>지도</th>
             </tr>
         </thead>
         <tbody id="tbody">
@@ -28,6 +29,7 @@
                 <td>{{remain_stat}}</td>
                 <td>{{stock_at}}</td>
                 <td>{{name}}</td>
+                <td><a href="/api/map?latitude={{lat}}&longitude={{lng}}">경로</a></td>
             </tr>
         {{/masks}}
         </tbody>
