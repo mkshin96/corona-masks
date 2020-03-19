@@ -1,4 +1,3 @@
-var baseUrl = "https://pickme-back.ga";
 var main = {
     init: function () {
         var _this = this;
@@ -11,9 +10,9 @@ var main = {
 
         $.ajax({
             type: 'GET',
-            url: baseUrl + '/api/masks?address=' + address
+            url: '/api/masks?address=' + address
         }).done(function () {
-            window.location.href = baseUrl + '/api/masks?address=' + address;
+            window.location.href = '/api/masks?address=' + address;
         }).fail(function (error) {
             alert("Error");
         });

@@ -25,7 +25,7 @@ public class MaskController {
     ('서울특별시' 와 같이 '시'단위만 입력하는 것은 불가능합니다.)
      */
     @GetMapping("/masks")
-    public String getMasks(Model model, @RequestParam("address") String address) {
+    public String getMasks(Model model, @RequestParam(value = "address", required = false) String address) {
         List<Store> masks = maskService.getMasks(address);
         if (masks != null) {
             model.addAttribute("masks", masks);
