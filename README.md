@@ -7,3 +7,12 @@
 
 ### 배포 서버
 - [LINK](https://pickme-back.ga/)
+
+### 사용 API
+<details> 
+
+<summary> 자세히 보기 </summary>
+
+- [카카오 지도 API](http://apis.map.kakao.com/)
+
+</details>
