@@ -1,12 +1,12 @@
 package me.mugon.coronamask.controller;
 
 import lombok.RequiredArgsConstructor;
+import me.mugon.coronamask.common.AppkeyProperties;
 import me.mugon.coronamask.domain.Store;
 import me.mugon.coronamask.service.MaskService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -16,6 +16,8 @@ import java.util.List;
 public class MaskController {
 
     private final MaskService maskService;
+
+    private final AppkeyProperties appkeyProperties;
 
     /*
     검색 기준이 될 주소
@@ -40,7 +42,7 @@ public class MaskController {
     public String getMap(Model model, @RequestParam(value = "latitude") float latitude, @RequestParam(value = "longitude") float longitude) {
         model.addAttribute("latitude", latitude);
         model.addAttribute("longitude", longitude);
-
+        model.addAttribute("app-key", appkeyProperties.getKey());
         return "map";
     }
 }
